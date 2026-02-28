@@ -14,6 +14,12 @@ let jugadores = {
     }
 }
 
+let aumentoFuerza = 0;
+let disminucionVida = 0;
+let disminucionFuerza = 0;
+let daño = 0;
+
+
 function entrenamiento(jugador) {
     jugador.vida += 1;
     aumentoFuerza = Math.floor(Math.random() * 5) + 1;
@@ -28,3 +34,5 @@ function lesion(jugador) {
     jugador.fuerza -= disminucionFuerza;
     console.log(`El jugador ${jugador.nombre} ha sufrido una lesión, lo que disminuyo su vida en ${disminucionVida} y ahora tiene ${jugador.vida}, tambien su fuerza disminuyo en ${disminucionFuerza} y ahora tiene ${jugador.fuerza}`)
 }
+
+
