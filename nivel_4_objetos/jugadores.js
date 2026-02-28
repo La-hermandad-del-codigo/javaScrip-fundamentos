@@ -3,14 +3,16 @@ let jugadores = {
         nombre: "jhefry",
         vida: 70,
         fuerza: 80,
-        nivel: 22
+        nivel: 22,
+        defensa: 50
     },
 
     jugador2: {
         nombre: "Gustavo",
         vida: 60,
         fuerza: 60,
-        nivel: 19
+        nivel: 19,
+        defensa: 50
     }
 }
 
@@ -35,4 +37,8 @@ function lesion(jugador) {
     console.log(`El jugador ${jugador.nombre} ha sufrido una lesión, lo que disminuyo su vida en ${disminucionVida} y ahora tiene ${jugador.vida}, tambien su fuerza disminuyo en ${disminucionFuerza} y ahora tiene ${jugador.fuerza}`)
 }
 
-
+function defender(jugador1, jugador2) {
+    daño = (jugador1.defensa - jugador2.fuerza)*-1;
+    jugador1.vida -= daño;
+    console.log(`El jugador ${jugador1.nombre} recibio ${daño} de daño de parte de ${jugador2.nombre} y ahora tiene ${jugador1.vida} de vida`);    
+}
