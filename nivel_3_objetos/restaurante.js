@@ -11,3 +11,7 @@ function ordenarComida(cliente, comida) {
     pagar(cliente, comida);
 
 }
+
+function mostrarEstado(cliente) {
+    console.log(`${cliente.nombre} se quedo con ${cliente.dinero} soles y con ${cliente.hambre} de hambre.`)
+}
