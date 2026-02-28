@@ -6,3 +6,10 @@ let jugadores = {
         nivel: 22
     }
 }
+
+function entrenamiento(jugador) {
+    jugador.vida += 1;
+    aumentoFuerza = Math.floor(Math.random()*5)+1;
+    jugador.fuerza += aumentoFuerza;
+    console.log(`El jugador ${jugador.nombre} aumento su fuerza en ${aumentoFuerza}, ahora tiene ${jugador.fuerza} en total y su vida aumento en 1, ahora tiene ${jugador.vida} en total`);
+}
