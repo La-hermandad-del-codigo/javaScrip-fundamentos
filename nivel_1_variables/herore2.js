@@ -5,3 +5,6 @@ let ciudad = "Ende"
 let enemigo = "Aura"
 
 console.log(`${nombreHeroe} tiene ${poder} de poder,se encuentra peleando con ${enemigo} en ${ciudad} y ya solo le queda ${nivelEnergia - 50} de energia`);
+
+let nuevoEnemigo = "Lugner"
+
