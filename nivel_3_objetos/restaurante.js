@@ -4,6 +4,11 @@ let cliente = {
     hambre: 60
 }
 
+let comida = {
+    nombre: "Plancha de Makis",
+    precio: 150,
+    satisfaccion: 50
+}
 
 function ordenarComida(cliente, comida) {
     console.log(`${cliente.nombre} pidio un(a) ${comida.nombre} el cual cuesta ${comida.precio} soles.`)
