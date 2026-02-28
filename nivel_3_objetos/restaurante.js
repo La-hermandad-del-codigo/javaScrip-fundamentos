@@ -17,6 +17,12 @@ function ordenarComida(cliente, comida) {
 
 }
 
+function pagar(cliente, comida) {
+    console.log(`${cliente.nombre} tiene que pagar ${comida.precio} soles, pero lo hace con ${cliente.dinero} soles.`)
+    cliente.dinero -= comida.precio;
+    mostrarEstado(cliente)
+}
+
 function mostrarEstado(cliente) {
     console.log(`${cliente.nombre} se quedo con ${cliente.dinero} soles y con ${cliente.hambre} de hambre.`)
 }
