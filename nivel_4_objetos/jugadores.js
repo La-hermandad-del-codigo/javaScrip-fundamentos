@@ -20,6 +20,7 @@ let aumentoFuerza = 0;
 let disminucionVida = 0;
 let disminucionFuerza = 0;
 let daño = 0;
+let dañoRecibido = 0;
 
 
 function entrenamiento(jugador) {
@@ -37,8 +38,15 @@ function lesion(jugador) {
     console.log(`El jugador ${jugador.nombre} ha sufrido una lesión, lo que disminuyo su vida en ${disminucionVida} y ahora tiene ${jugador.vida}, tambien su fuerza disminuyo en ${disminucionFuerza} y ahora tiene ${jugador.fuerza}`)
 }
 
-function defender(jugador1, jugador2) {
-    daño = (jugador1.defensa - jugador2.fuerza)*-1;
-    jugador1.vida -= daño;
-    console.log(`El jugador ${jugador1.nombre} recibio ${daño} de daño de parte de ${jugador2.nombre} y ahora tiene ${jugador1.vida} de vida`);    
+function ataque(jugador1, jugador2) {
+    daño = jugador2.fuerza + jugador2.nivel;
+    console.log(`${jugador2.nombre} ataco a ${jugador1.nombre} con un ataque de ${daño} poder.`)
+    defender(jugador1, jugador2, daño)
+}
+
+
+function defender(jugador1, jugador2, daño) {
+    dañoRecibido = (jugador1.defensa - daño) * -1;
+    jugador1.vida -= dañoRecibido;
+    console.log(`El jugador ${jugador1.nombre} recibio ${dañoRecibido} de daño de parte de ${jugador2.nombre} y ahora tiene ${jugador1.vida} de vida.`);
 }
