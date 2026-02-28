@@ -8,3 +8,5 @@ console.log(`${nombreHeroe} tiene ${poder} de poder,se encuentra peleando con ${
 
 let nuevoEnemigo = "Lugner"
 
+console.log(`${enemigo} va perdiendo, pero llego su aliado ${nuevoEnemigo} a ayudarla`);
+
