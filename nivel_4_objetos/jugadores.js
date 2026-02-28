@@ -2,14 +2,14 @@ let jugadores = {
     jugador1: {
         nombre: "jhefry",
         vida: 70,
-        fuerza: 80,
+        fuerza: 70,
         nivel: 22,
         defensa: 50
     },
 
     jugador2: {
         nombre: "Gustavo",
-        vida: 60,
+        vida: 65,
         fuerza: 60,
         nivel: 19,
         defensa: 50
@@ -50,3 +50,27 @@ function defender(jugador1, jugador2, daño) {
     jugador1.vida -= dañoRecibido;
     console.log(`El jugador ${jugador1.nombre} recibio ${dañoRecibido} de daño de parte de ${jugador2.nombre} y ahora tiene ${jugador1.vida} de vida.`);
 }
+
+jugador1 = jugadores.jugador1
+jugador2 = jugadores.jugador2
+
+
+console.log(`Presentacion de jugadores:`);
+console.log(`El primer jugador es ${jugador1.nombre}, esta en el nivel ${jugador1.nivel}, con un total de ${jugador1.vida} puntos de vida,\nademás cuenta con ${jugador1.fuerza} puntos de fuerza, y tiene ${jugador1.defensa} puntos de defensa\n`)
+console.log(`El segundo jugador es ${jugador2.nombre}, esta en el nivel ${jugador2.nivel}, con un total de ${jugador2.vida} puntos de vida,\nademás cuenta con ${jugador2.fuerza} puntos de fuerza, y tiene ${jugador2.defensa} puntos de defensa`)
+
+console.log(`\nEntrenamiento de jugadores:`);
+
+entrenamiento(jugador1)
+entrenamiento(jugador2)
+entrenamiento(jugador1)
+entrenamiento(jugador2)
+
+console.log(`\nLesiones de jugadores:`);
+lesion(jugador1)
+lesion(jugador2)
+
+console.log(`\nataque de jugadores:`);
+ataque(jugador1, jugador2)
+console.log("");
+ataque(jugador2, jugador1)
