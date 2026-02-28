@@ -1,3 +1,10 @@
+// gustavo
+let nombreHeroe1 = "All Might";
+let poderHeroe1 = 89;
+let nivelEnergiaHeroe1 = 50;
+let daño1 = 6;
+let defensaHeroe1 = 4;
+
 //jhefry
 let nombreHeroe2 = "Frieren";
 let poderHeroe2 = 85;
