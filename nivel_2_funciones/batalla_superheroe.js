@@ -43,3 +43,6 @@ function escudoMagico(nom1, nom2) {
     console.log(`${nom2} uso su escudo magico para anular el super ataque de ${nom1}`)
 
 }
+
+ataque(nombreHeroe1, nombreHeroe2, daño2, nivelEnergiaHeroe1, curacion)
+superAtaque(nombreHeroe1, nombreHeroe2);
