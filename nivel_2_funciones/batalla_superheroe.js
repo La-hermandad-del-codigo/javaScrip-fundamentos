@@ -33,7 +33,11 @@ function recargarEnergia(nombre, energia, recuperacion) {
     console.log(`${nombre} recargo su energia en ${curacion}, actualmente tiene ${energia + curacion}`)
 }
 
-
+//creacion funcion especial - gustavo
+function superAtaque(nombre1, nombre2,) {
+    console.log(`${nombre1} realizo su super ataque ${nombreAtaque} a ${nombre2}`);
+    escudoMagico(nombre1, nombre2)
+}
 
 function escudoMagico(nom1, nom2) {
     console.log(`${nom2} uso su escudo magico para anular el super ataque de ${nom1}`)
