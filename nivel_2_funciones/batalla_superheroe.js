@@ -28,6 +28,12 @@ function defender(nombre1, nombre2, ataque, energia, recuperacion) {
     recargarEnergia(nombre1, energiaActual, recuperacion)
 }
 
+function recargarEnergia(nombre, energia, recuperacion) {
+    curacion = (Math.floor(Math.random() * 10) + 1);
+    console.log(`${nombre} recargo su energia en ${curacion}, actualmente tiene ${energia + curacion}`)
+}
+
+
 
 function escudoMagico(nom1, nom2) {
     console.log(`${nom2} uso su escudo magico para anular el super ataque de ${nom1}`)
