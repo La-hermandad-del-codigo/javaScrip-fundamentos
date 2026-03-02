@@ -17,18 +17,18 @@ let energiaActual = 0;
 let nombreAtaque = "PLUS ULTRA";
 let curacion = 0;
 
-function ataque(nombre1, nombre2, ataque, energia, recuperacion) {
+function ataque(nombre1, nombre2, ataque, energia) {
     console.log(`${nombre2} ataco a ${nombre1}`)
-    defender(nombre1, nombre2, ataque, energia, recuperacion)
+    defender(nombre1, nombre2, ataque, energia)
 }
 
-function defender(nombre1, nombre2, ataque, energia, recuperacion) {
+function defender(nombre1, nombre2, ataque, energia) {
     energiaActual = energia - ataque
     console.log(`${nombre1} recibio ${ataque} de daño por parte de ${nombre2}, le queda ${energiaActual} puntos de energia`)
-    recargarEnergia(nombre1, energiaActual, recuperacion)
+    recargarEnergia(nombre1, energiaActual)
 }
 
-function recargarEnergia(nombre, energia, recuperacion) {
+function recargarEnergia(nombre, energia) {
     curacion = (Math.floor(Math.random() * 10) + 1);
     console.log(`${nombre} recargo su energia en ${curacion}, actualmente tiene ${energia + curacion}`)
 }
@@ -44,5 +44,5 @@ function escudoMagico(nom1, nom2) {
 
 }
 
-ataque(nombreHeroe1, nombreHeroe2, daño2, nivelEnergiaHeroe1, curacion)
+ataque(nombreHeroe1, nombreHeroe2, daño2, nivelEnergiaHeroe1)
 superAtaque(nombreHeroe1, nombreHeroe2);
