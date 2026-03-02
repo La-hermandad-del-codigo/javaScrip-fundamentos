@@ -51,8 +51,7 @@ function defender(jugador1, jugador2, daño) {
     console.log(`El jugador ${jugador1.nombre} recibio ${dañoRecibido} de daño de parte de ${jugador2.nombre} y ahora tiene ${jugador1.vida} de vida.`);
 }
 
-jugador1 = jugadores.jugador1
-jugador2 = jugadores.jugador2
+const { jugador1, jugador2 } = jugadores;
 
 
 console.log(`Presentacion de jugadores:`);
