@@ -30,7 +30,15 @@ function agregarPlatoDemo() {
     menu.push(nuevoPlato);
 }
 
-// 4) EVENTOS: conectar botones con funciones
+function contarPlatos() {
+    for (let i = 0; i <= menu.length; i++) {
+        if (i == menu.length) {
+            console.log(`Hay un total de ${i} platos`);
+        }
+    }
+}
+
+//4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
     renderMenu();
 });
