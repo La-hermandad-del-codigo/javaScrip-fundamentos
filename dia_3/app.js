@@ -11,15 +11,15 @@ let menu = [
 function renderMenu() {
     const output = document.getElementById("output");
     output.innerHTML = ""; // limpiar
-
     // crear una lista HTML simple
-    let html = "<ul>";
-
+    let html = contarPlatos();
+    html += "<ul>";
     for (let i = 0; i < menu.length; i++) {
         const plato = menu[i];
-        html += `<li>${plato.nombre} — S/ ${plato.precio} — Stock: ${plato.stock}</li>`;
+        html += `<li>${plato.nombre.toUpperCase()}</li>`;
+        html += `<p>S/ ${plato.precio}</p>`;
+        html += `<p>Stock: ${plato.stock}</p>`;
     }
-
     html += "</ul>";
     output.innerHTML = html;
 }
@@ -31,11 +31,7 @@ function agregarPlatoDemo() {
 }
 
 function contarPlatos() {
-    for (let i = 0; i <= menu.length; i++) {
-        if (i == menu.length) {
-            console.log(`Hay un total de ${i} platos`);
-        }
-    }
+    return `<p>En el menú hay un total de ${menu.length} platos</p>`;
 }
 
 //4) EVENTOS: conectar botones con funciones
@@ -48,5 +44,3 @@ document.getElementById("btnAgregar").addEventListener("click", () => {
     renderMenu();
 });
 
-
-contarPlatos()
