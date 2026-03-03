@@ -26,7 +26,7 @@ function renderMenu() {
 
 // 3) FUNCIÓN: agregar un plato demo al menú
 function agregarPlatoDemo() {
-    const nuevoPlato = { nombre: "Pollo a la brasa", precio: 20, stock: 4 };
+    const nuevoPlato = { nombre: "Aji de gallina", precio: 12, stock: 4 };
     menu.push(nuevoPlato);
 }
 
@@ -47,3 +47,6 @@ document.getElementById("btnAgregar").addEventListener("click", () => {
     agregarPlatoDemo();
     renderMenu();
 });
+
+
+contarPlatos()
