@@ -34,6 +34,16 @@ function contarPlatos() {
     return `<p>En el menú hay un total de ${menu.length} platos</p>`;
 }
 
+
+function buscarPlatoPorNombre(nombrePlato) {
+    let plato = menu.find(m => m.nombre.toLowerCase() === nombrePlato.toLowerCase());
+    if (!plato) {
+        plato = "No encontrado"
+        return plato;
+    }
+    return plato;
+}
+
 //4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
     renderMenu();
