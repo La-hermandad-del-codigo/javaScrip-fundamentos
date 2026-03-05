@@ -51,6 +51,19 @@ function obtenerResumenMenu() {
     return menu.map(m => `${m.nombre} + " - S/." + ${m.precio}`)
 }
 
+function renderLista(titulo, array) {
+    const output = document.getElementById("output");
+    output.innerHTML = "";
+
+    let html = `${titulo}`
+    html += "<ul>"
+    for (let i = 0; i <= array.length; i++) {
+        html += `<li>${array[i]}</li>`
+    }
+    html += "</ul>";
+    output.innerHTML = html;
+}
+
 
 //4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
