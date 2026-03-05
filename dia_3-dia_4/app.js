@@ -47,6 +47,11 @@ function filtrarStockBajo() {
     return menu.filter(m => m.stock <= 3)
 }
 
+function obtenerResumenMenu() {
+    return menu.map(m => `${m.nombre} + " - S/." + ${m.precio}`)
+}
+
+
 //4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
     renderMenu();
