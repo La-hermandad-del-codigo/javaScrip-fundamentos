@@ -63,6 +63,18 @@ function renderLista(titulo, array) {
     output.innerHTML = html;
 }
 
+function venderPlato(nombre, cantidad) {
+    let plato = menu.find(m => m.nombre.toLowerCase() === nombre.toLowerCase());
+    if (!plato) {
+        return "Plato no encontrado";
+    } else if (plato.stock < cantidad) {
+        return "No hay stock suficiente";
+    }
+
+    plato.stock -= cantidad;
+    return "Compra realizada"
+
+}
 
 //4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
@@ -90,3 +102,13 @@ document.getElementById("btnResumen").addEventListener("click", () => {
     let resumen = obtenerResumenMenu(menu);
     renderLista("Resumen del menu", resumen);
 });
+
+
+document.getElementById("btnComprar").addEventListener("click", () => {
+    let nombrePlatoC = document.getElementById("comprarPlato").value;
+    let cantidadPlatoC = document.getElementById("cantidadPlato").value;
+
+    let compra = []
+    compra.push(venderPlato(nombrePlatoC, cantidadPlatoC));
+    renderLista("Resultados de compra", compra)
+})
