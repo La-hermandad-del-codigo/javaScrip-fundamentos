@@ -34,7 +34,6 @@ function contarPlatos() {
     return `<p>En el menú hay un total de ${menu.length} platos</p>`;
 }
 
-
 function buscarPlatoPorNombre(nombrePlato) {
     let plato = menu.find(m => m.nombre.toLowerCase() === nombrePlato.toLowerCase());
     if (!plato) {
@@ -42,6 +41,10 @@ function buscarPlatoPorNombre(nombrePlato) {
         return plato;
     }
     return plato;
+}
+
+function filtrarStockBajo() {
+    return menu.filter(m => m.stock <= 3)
 }
 
 //4) EVENTOS: conectar botones con funciones
