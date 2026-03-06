@@ -14,7 +14,7 @@ function renderMenu() {
     // crear una lista HTML simple
     let html = contarPlatos();
     html += "<ul>";
-    let clase="";
+    let clase = "";
     let estado = "";
     for (let i = 0; i < menu.length; i++) {
 
@@ -22,13 +22,13 @@ function renderMenu() {
 
         if (plato.stock >= 1 && plato.stock <= 3) {
             estado = "Stock bajo"
-            clase="bajo"
+            clase = "bajo"
         } else if (plato.stock == 0) {
             estado = "Agotado"
-            clase="agotado"
+            clase = "agotado"
         } else {
             estado = "Normal"
-            clase="normal"
+            clase = "normal"
         }
 
         html += `<li class=${clase}>${plato.nombre.toUpperCase()}</li>`;
@@ -83,14 +83,17 @@ function renderLista(titulo, array) {
 
 function venderPlato(nombre, cantidad) {
     let plato = menu.find(m => m.nombre.toLowerCase() === nombre.toLowerCase());
-    if (!plato) {
-        return "Plato no encontrado";
-    } else if (plato.stock < cantidad) {
-        return "No hay stock suficiente";
-    }
 
-    plato.stock -= cantidad;
-    return "Compra realizada"
+    if (!plato) {
+        alert("Plato no encontrado")
+
+    } else if (plato.stock < cantidad) {
+        alert("No disponible")
+
+    } else {
+        plato.stock -= cantidad;
+        alert("Compra realizada")
+    }
 
 }
 
@@ -128,5 +131,5 @@ document.getElementById("btnComprar").addEventListener("click", () => {
 
     let compra = []
     compra.push(venderPlato(nombrePlatoC, cantidadPlatoC));
-    renderLista("Resultados de compra", compra)
+    renderMenu();
 })
