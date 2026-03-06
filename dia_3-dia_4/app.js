@@ -97,6 +97,22 @@ function venderPlato(nombre, cantidad) {
 
 }
 
+function verificarEstadoGeneral(menu) {
+    let disponible = (menu.filter(agotados => agotados.stock >= 1).length);
+    let bajo = (menu.filter(bajo => bajo.stock >= 1 && bajo.stock <= 3).length);
+    let agotado = (menu.filter(agotado => agotado.stock <= 1).length);
+    const output = document.getElementById("output");
+    output.innerHTML = "";
+    let html = "<br>";
+    html += `<table border="1">`;
+    html += `<tr><td>Disponibles</td> <td>  ${disponible}  </td></tr>`;
+    html += `<tr><td>Tienen un stock bajo</td> <td>  ${bajo}  </td></tr>`;
+    html += `<tr><td>Cantidad de platos agotados</td> <td>  ${agotado}  </td></tr>`;
+    html += "</table>";
+    output.innerHTML = html;
+}
+
+
 //4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
     renderMenu();
@@ -122,6 +138,7 @@ document.getElementById("btnStockBajo").addEventListener("click", () => {
 document.getElementById("btnResumen").addEventListener("click", () => {
     let resumen = obtenerResumenMenu(menu);
     renderLista("Resumen del menu", resumen);
+    verificarEstadoGeneral(menu)
 });
 
 
