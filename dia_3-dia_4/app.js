@@ -15,11 +15,25 @@ function renderMenu() {
     let html = contarPlatos();
     html += "<ul>";
     for (let i = 0; i < menu.length; i++) {
+
         const plato = menu[i];
+        let estado = "";
+
+        if (plato.stock >= 1 && plato.stock <= 3) {
+            estado = "Stock bajo"
+        } else if (plato.stock == 0) {
+            estado = "Agotado"
+        } else {
+            estado = "Normal"
+        }
+
         html += `<li>${plato.nombre.toUpperCase()}</li>`;
         html += `<p>S/ ${plato.precio}</p>`;
         html += `<p>Stock: ${plato.stock}</p>`;
+        html += `<p>Estado: ${estado}</p>`;
+
     }
+
     html += "</ul>";
     output.innerHTML = html;
 }
