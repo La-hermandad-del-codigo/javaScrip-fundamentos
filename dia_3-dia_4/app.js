@@ -14,12 +14,30 @@ function renderMenu() {
     // crear una lista HTML simple
     let html = contarPlatos();
     html += "<ul>";
+    let clase = "";
+    let estado = "";
     for (let i = 0; i < menu.length; i++) {
+
         const plato = menu[i];
-        html += `<li>${plato.nombre.toUpperCase()}</li>`;
+
+        if (plato.stock >= 1 && plato.stock <= 3) {
+            estado = "Stock bajo"
+            clase = "bajo"
+        } else if (plato.stock == 0) {
+            estado = "Agotado"
+            clase = "agotado"
+        } else {
+            estado = "Normal"
+            clase = "normal"
+        }
+
+        html += `<li class=${clase}>${plato.nombre.toUpperCase()}</li>`;
         html += `<p>S/ ${plato.precio}</p>`;
         html += `<p>Stock: ${plato.stock}</p>`;
+        html += `<p>Estado: ${estado}</p>`;
+
     }
+
     html += "</ul>";
     output.innerHTML = html;
 }
@@ -65,16 +83,37 @@ function renderLista(titulo, array) {
 
 function venderPlato(nombre, cantidad) {
     let plato = menu.find(m => m.nombre.toLowerCase() === nombre.toLowerCase());
+
     if (!plato) {
-        return "Plato no encontrado";
+        alert("Plato no encontrado")
+
     } else if (plato.stock < cantidad) {
-        return "No hay stock suficiente";
+        alert("No disponible")
+
+    } else {
+        plato.stock -= cantidad;
+        alert("Compra realizada")
     }
 
-    plato.stock -= cantidad;
-    return "Compra realizada"
-
 }
+
+function verificarEstadoGeneral(menu) {
+
+    let disponible = (menu.filter(agotados => agotados.stock >= 1).length);
+    let bajo = (menu.filter(bajo => bajo.stock >= 1 && bajo.stock <= 3).length);
+    let agotado = (menu.filter(agotado => agotado.stock <= 1).length);
+
+    const output = document.getElementById("output");
+
+    let html = "<br>"
+    html += `<table border="1">`;
+    html += `<tr><td>Disponibles</td> <td>  ${disponible}  </td></tr>`;
+    html += `<tr><td>Tienen un stock bajo</td> <td>  ${bajo}  </td></tr>`;
+    html += `<tr><td>Cantidad de platos agotados</td> <td>  ${agotado}  </td></tr>`;
+    html += "</table>";
+    output.innerHTML += html;
+}
+
 
 //4) EVENTOS: conectar botones con funciones
 document.getElementById("btnMostrar").addEventListener("click", () => {
@@ -101,8 +140,8 @@ document.getElementById("btnStockBajo").addEventListener("click", () => {
 document.getElementById("btnResumen").addEventListener("click", () => {
     let resumen = obtenerResumenMenu(menu);
     renderLista("Resumen del menu", resumen);
+    verificarEstadoGeneral(menu)
 });
-
 
 document.getElementById("btnComprar").addEventListener("click", () => {
     let nombrePlatoC = document.getElementById("comprarPlato").value;
@@ -110,5 +149,5 @@ document.getElementById("btnComprar").addEventListener("click", () => {
 
     let compra = []
     compra.push(venderPlato(nombrePlatoC, cantidadPlatoC));
-    renderLista("Resultados de compra", compra)
+    renderMenu();
 })
