@@ -98,18 +98,20 @@ function venderPlato(nombre, cantidad) {
 }
 
 function verificarEstadoGeneral(menu) {
+
     let disponible = (menu.filter(agotados => agotados.stock >= 1).length);
     let bajo = (menu.filter(bajo => bajo.stock >= 1 && bajo.stock <= 3).length);
     let agotado = (menu.filter(agotado => agotado.stock <= 1).length);
+
     const output = document.getElementById("output");
-    output.innerHTML = "";
-    let html = "<br>";
+
+    let html = "<br>"
     html += `<table border="1">`;
     html += `<tr><td>Disponibles</td> <td>  ${disponible}  </td></tr>`;
     html += `<tr><td>Tienen un stock bajo</td> <td>  ${bajo}  </td></tr>`;
     html += `<tr><td>Cantidad de platos agotados</td> <td>  ${agotado}  </td></tr>`;
     html += "</table>";
-    output.innerHTML = html;
+    output.innerHTML += html;
 }
 
 
@@ -140,7 +142,6 @@ document.getElementById("btnResumen").addEventListener("click", () => {
     renderLista("Resumen del menu", resumen);
     verificarEstadoGeneral(menu)
 });
-
 
 document.getElementById("btnComprar").addEventListener("click", () => {
     let nombrePlatoC = document.getElementById("comprarPlato").value;
