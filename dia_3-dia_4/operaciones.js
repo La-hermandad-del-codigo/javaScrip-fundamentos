@@ -47,3 +47,15 @@ export function contarPlatos() {
     return `<p>En el menú hay un total de ${menu.length} platos</p>`;
 }
 
+export function simularRespuestaServidor(resultado) {
+ return new Promise((resolve, reject) => {
+   setTimeout(() => {
+     const falla = Math.random() < 0.3;
+     if (falla) {
+       reject("Error del servidor simulado.");
+     } else {
+       resolve(resultado);
+     }
+   }, 2000);
+ });
+}
