@@ -2,7 +2,7 @@
 
 
 // 2) FUNCIÓN: renderizar (mostrar) el menú en pantalla
-function renderMenu() {
+export function renderMenu() {
     const output = document.getElementById("output");
     output.innerHTML = ""; // limpiar
     // crear una lista HTML simple
@@ -36,14 +36,8 @@ function renderMenu() {
     output.innerHTML = html;
 }
 
-// 3) FUNCIÓN: agregar un plato demo al menú
 
-
-
-
-
-
-function renderLista(titulo, array) {
+export function renderLista(titulo, array) {
     const output = document.getElementById("output");
     output.innerHTML = "";
 
