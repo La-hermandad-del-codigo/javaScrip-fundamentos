@@ -1,11 +1,5 @@
 // 1) VARIABLES + OBJETOS + ARRAYS
-let menu = [
-    { nombre: "Arroz con pollo", precio: 12, stock: 5 },
-    { nombre: "Lomo saltado", precio: 18, stock: 3 },
-    { nombre: "Sopa", precio: 8, stock: 3 },
-    { nombre: "Ceviche", precio: 15, stock: 5 },
-    { nombre: "Chaufa", precio: 20, stock: 3 }
-];
+
 
 // 2) FUNCIÓN: renderizar (mostrar) el menú en pantalla
 function renderMenu() {
@@ -43,10 +37,7 @@ function renderMenu() {
 }
 
 // 3) FUNCIÓN: agregar un plato demo al menú
-function agregarPlatoDemo() {
-    const nuevoPlato = { nombre: "Aji de gallina", precio: 12, stock: 4 };
-    menu.push(nuevoPlato);
-}
+
 
 function contarPlatos() {
     return `<p>En el menú hay un total de ${menu.length} platos</p>`;
@@ -64,9 +55,7 @@ function filtrarStockBajo() {
     return menu.filter(m => m.stock <= 3)
 }
 
-function obtenerResumenMenu(array) {
-    return array.map(m => `${m.nombre} - S/. ${m.precio}`)
-}
+
 
 function renderLista(titulo, array) {
     const output = document.getElementById("output");
@@ -98,11 +87,9 @@ function venderPlato(nombre, cantidad) {
 }
 
 function verificarEstadoGeneral(menu) {
-
     let disponible = (menu.filter(agotados => agotados.stock >= 1).length);
     let bajo = (menu.filter(bajo => bajo.stock >= 1 && bajo.stock <= 3).length);
     let agotado = (menu.filter(agotado => agotado.stock <= 1).length);
-
     const output = document.getElementById("output");
 
     let html = "<br>"
