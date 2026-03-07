@@ -1,3 +1,5 @@
+import { menu } from "./menu.js";
+
 export function verificarEstadoGeneral(menu) {
     let disponible = (menu.filter(agotados => agotados.stock >= 1).length);
     let bajo = (menu.filter(bajo => bajo.stock >= 1 && bajo.stock <= 3).length);
