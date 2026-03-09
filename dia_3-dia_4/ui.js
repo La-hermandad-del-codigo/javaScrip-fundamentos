@@ -1,5 +1,5 @@
 import { menu, obtenerResumenMenu, agregarPlatoDemo } from "./menu.js";
-import { contarPlatos, buscarPlatoPorNombre, filtrarStockBajo, verificarEstadoGeneral, venderPlato } from "./operaciones.js";
+import { contarPlatos, buscarPlatoPorNombre, filtrarStockBajo, verificarEstadoGeneral, venderPlato, simularRespuestaServidor, venderPlatoAsync } from "./operaciones.js";
 
 
 //FUNCIÓN: renderizar (mostrar) el menú en pantalla
