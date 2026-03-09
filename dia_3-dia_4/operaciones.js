@@ -29,16 +29,22 @@ export function filtrarStockBajo() {
 
 export function venderPlato(nombre, cantidad) {
     let plato = menu.find(m => m.nombre.toLowerCase() === nombre.toLowerCase());
-
+    let mensaje = {
+        ok:false,
+        mensaje
+    };
     if (!plato) {
-        alert("Plato no encontrado")
+        mensaje.ok=false;
+        mensaje.mensaje="EL plato no existe";
 
     } else if (plato.stock < cantidad) {
-        alert("No disponible")
+        mensaje.ok=false;
+        mensaje.mensaje="Cantidad invalida";
 
     } else {
         plato.stock -= cantidad;
-        alert("Compra realizada")
+        mensaje.ok=true;
+        mensaje.mensaje="Venta";
     }
 
 }
